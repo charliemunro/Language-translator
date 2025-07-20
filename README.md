@@ -1,103 +1,81 @@
 # Language Translator
 
-A hybrid rule‑based + machine‑learning translator between English and Italian.
-
-[![CI Build Status](https://github.com/charliemunro/Language-translator/actions/workflows/ci.yml/badge.svg)](https://github.com/charliemunro/Language-translator/actions/workflows/ci.yml)  
-[![PyPI Version](https://img.shields.io/pypi/v/language-translator)](https://pypi.org/project/language-translator/)  
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)  
+A bilingual translation pipeline between English and Italian, implemented entirely within a Jupyter Notebook.
 
 ---
 
-## 📖 Overview
+## 📁 Project Structure
 
-This package combines rule‑based NLTK preprocessing with a TensorFlow model to translate text between English and Italian. It offers:
-
-- A **Python package** for programmatic translation  
-- A **CLI** for quick one‑off translations  
-- A **Flask web demo** for interactive use  
-
----
-
-## 🚀 Installation
-
-```bash
-# 1. Clone this repository
-git clone https://github.com/charliemunro/Language-translator.git
-cd Language-translator
-
-# 2. (Optional) Create a virtual environment
-python3 -m venv venv
-source venv/bin/activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-# or install as a package:
-pip install .
+```
+Language-translator/
+├── eng_data.csv           # English training data
+├── ita_data.csv           # Italian training data
+├── sample_words.txt       # Sample English test sentences
+├── sample_words_ita.txt   # Sample Italian test sentences
+├── translator.ipynb       # Jupyter Notebook containing the full pipeline
+└── README.md              # This file
 ```
 
 ---
 
-## 🎯 Quickstart
+## 🛠 Installation
 
-### CLI
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/charliemunro/Language-translator.git
+   cd Language-translator
+   ```
 
-```bash
-# Translate a simple sentence
-python cli.py --input "Hello, how are you?"
-# → Ciao, come stai?
-```
+2. **Set up a virtual environment (optional but recommended)**  
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
 
-### Flask Demo
-
-```bash
-export FLASK_APP=app.py
-flask run
-# Then visit http://localhost:5000 in your browser
-```
-
-<p align="center">
-  <img src="docs/demo-screenshot.png" alt="Flask demo screenshot" width="600"/>
-</p>
+3. **Install dependencies**  
+   ```bash
+   pip install pandas nltk tensorflow numpy scikit-learn matplotlib jupyter
+   ```
 
 ---
 
-## 🛠️ Package API
+## 🚀 Usage
 
-```python
-from translator.model import Translator
+1. **Launch the Jupyter Notebook**  
+   ```bash
+   jupyter notebook translator.ipynb
+   ```
+2. **Run through the cells** to:
+   - Load and preprocess the English and Italian datasets.
+   - Train the translation model using statistical or ML methods.
+   - Evaluate performance on the sample test sentences.
+   - Translate custom English sentences to Italian and vice versa.
 
-# Initialize with your model/data paths
-tr = Translator(model_path="data/eng_ita_model.h5")
-
-# Translate text programmatically
-print(tr.translate("Good morning"))  # → Buongiorno
-```
-
----
-
-## 🔧 Testing & CI
-
-We use **pytest** for smoke tests and **GitHub Actions** to lint & run tests on every push.
-
-```bash
-# Run all tests locally
-pytest
-```
+3. **Modify or extend** the notebook by:
+   - Adding new datasets in `eng_data.csv` / `ita_data.csv`.
+   - Experimenting with different model architectures.
+   - Visualizing results with matplotlib.
 
 ---
 
-## 🤝 Contributing
+## 🗂 Data
 
-Contributions welcome! Please check out [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to report issues or submit pull requests.
+- **eng_data.csv** & **ita_data.csv**: Parallel corpora for training.
+- **sample_words.txt** & **sample_words_ita.txt**: Test pairs for quick evaluation.
+
+---
+
+## ⚙️ Next Steps
+
+To make this project production-ready for employers:
+
+- **Modularize** the code into Python packages (`translator/`).
+- **Add a CLI** and **Flask web demo**.
+- **Write unit tests** and configure **CI/CD** (GitHub Actions).
+- **Include documentation** and project metadata (`setup.py`, `requirements.txt`, `LICENSE`).
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
-
----
-
-## 🔖 Topics
-
-`python` · `nlp` · `flask` · `tensorflow` · `machine-learning`
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
