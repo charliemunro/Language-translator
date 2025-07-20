@@ -65,17 +65,6 @@ Language-translator/
 
 ---
 
-## ⚙️ Next Steps
-
-To make this project production-ready for employers:
-
-- **Modularize** the code into Python packages (`translator/`).
-- **Add a CLI** and **Flask web demo**.
-- **Write unit tests** and configure **CI/CD** (GitHub Actions).
-- **Include documentation** and project metadata (`setup.py`, `requirements.txt`, `LICENSE`).
-
----
-
 ## 📄 License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
